@@ -1,0 +1,20 @@
+{
+    "receitas": [
+        {
+            "descricao": "Trabalho",
+            "valor": 250.0,
+            "categoria": "Salario",
+            "data_hora": "14/06/2025 09:23:04"
+        }
+    ],
+    "despesas": [
+        {
+            "descricao": "Moto",
+            "valor": 350.0,
+            "categoria": "Manuntenção",
+            "data_hora": "14/06/2025 09:23:28"
+        }
+    ],
+    "planejamentos": [],
+    "notas": ""
+}

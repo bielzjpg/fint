@@ -4,6 +4,134 @@ import json
 import pandas as pd
 import altair as alt
 
+st.markdown("""
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+html, body, [class*="css"] {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #121214; /* fundo preto */
+    color: #E1BEE7; /* roxo claro para textos */
+}
+
+/* Sidebar */
+[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, #6a0dad 0%, #4b0082 100%);
+    color: white;
+    border-right: 4px solid #7b1fa2;
+}
+
+/* Títulos da sidebar */
+[data-testid="stSidebar"] h1, 
+[data-testid="stSidebar"] h2, 
+[data-testid="stSidebar"] h3 {
+    color: #d1c4e9;
+}
+
+/* Botões do menu na sidebar */
+.stButton button {
+    background-color: #7b1fa2 !important;
+    color: white !important;
+    font-weight: 700;
+    border-radius: 10px;
+    border: none;
+    padding: 10px 15px;
+    margin-bottom: 8px;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    box-shadow: 0 3px 6px rgba(123, 31, 162, 0.6);
+    cursor: pointer;
+}
+.stButton button:hover {
+    background-color: #4a0072 !important;
+}
+
+/* Botão ativo do menu */
+.stButton button:focus, .stButton button[aria-pressed="true"] {
+    background-color: #37005c !important;
+    box-shadow: 0 0 12px #37005c;
+}
+
+/* Títulos das páginas */
+h1 {
+    color: #d1c4e9;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* Métricas */
+[data-testid="metric-container"] {
+    background-color: #4a0072;
+    border-radius: 12px;
+    padding: 15px;
+    color: white;
+    font-weight: 700;
+    box-shadow: 0 5px 10px rgba(74, 0, 114, 0.7);
+}
+
+/* Inputs e forms */
+.stTextInput>div>div>input, 
+.stNumberInput>div>input, 
+.stDateInput>div>input, 
+.stTextArea>div>textarea {
+    border: 2px solid #7b1fa2 !important;
+    border-radius: 10px !important;
+    padding: 8px !important;
+    background-color: #1e1b27 !important;
+    color: #d1c4e9 !important;
+    font-weight: 600;
+}
+
+/* Forms submit buttons */
+.stButton>button {
+    background-color: #7b1fa2 !important;
+    color: white !important;
+    font-weight: 700 !important;
+    border-radius: 10px !important;
+    padding: 10px 20px !important;
+    margin-top: 10px !important;
+    box-shadow: 0 5px 10px rgba(123, 31, 162, 0.7);
+    transition: background-color 0.3s ease;
+}
+.stButton>button:hover {
+    background-color: #4a0072 !important;
+}
+
+/* Linhas e divisores */
+hr {
+    border: 1px solid #7b1fa2;
+    margin: 20px 0;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    color: #7b1fa2;
+    font-size: 12px;
+    margin-top: 40px;
+}
+
+/* Altair charts custom color */
+.vega-embed .mark-rect {
+    fill: #7b1fa2 !important;
+}
+
+/* Scrollbar roxo */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #7b1fa2;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+    background-color: #121214;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+
 # Funções de dados
 def salvar_dados(receitas, despesas, planejamentos, notas):
     with open("dados_financeiros.json", "w", encoding="utf-8") as f:
